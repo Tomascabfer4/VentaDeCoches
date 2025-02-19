@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Coches</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <app-annadir-coche></app-annadir-coche>
+  <ion-list>
+    <ion-item *ngFor="let coche of coches" class="centered-item">
+      <ion-card class="center-card">
+        <ion-card-header>
+          <ion-img [src]="coche.Foto" alt="{{ coche.Marca }} {{ coche.Modelo }}" class="tamanio-img"></ion-img>
+          <ion-card-title>{{ coche.Marca }} {{ coche.Modelo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Año:</strong> {{ coche.Fecha }}</p>
+          <p><strong>Precio:</strong> {{ coche.Precio }} €</p>
+          <p><strong>Kilometros:</strong> {{ coche.Kilometros }} </p>
+          <ion-button class="boton-derecha" color="danger" shape="round" (click)="eliminarDatos(coche.id)">
+            <ion-icon name="close-circle-outline"></ion-icon>Eliminar
+          </ion-button>
+          <ion-accordion-group>
+
+            <ion-accordion value="first">
+              <ion-item slot="header" >
+                <ion-label>Modificar Coche</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <!--Con [cocheId] definimos una variable con el valor del id del coche,
+                    esto es para pasarselo al componente modificarcoche, para saber que
+                    coche es el que tiene que ser modificado, como el id lo crea firebase
+                    se le pasa en minuscula sino no leera el id del vehiculo-->
+                <app-modificar-coche [cocheId]="coche.id"></app-modificar-coche>
+              </div>
+            </ion-accordion>
+            
+          </ion-accordion-group>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

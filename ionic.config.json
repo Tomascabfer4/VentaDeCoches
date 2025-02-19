@@ -1,0 +1,7 @@
+{
+  "name": "ventacoches",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

@@ -1,0 +1,51 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Inserta un nuevo coche</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-label>Marca</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce marca" [(ngModel)]="marca"></ion-textarea>
+      </ion-item>
+      <ion-label>Modelo</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce modelo"[(ngModel)]="modelo"></ion-textarea>
+      </ion-item>
+      <ion-label>Combustible</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce combustible"[(ngModel)]="combustible"></ion-textarea>
+      </ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce fecha"[(ngModel)]="fecha"></ion-textarea>
+      </ion-item>
+      <ion-label>Kilometros</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce kilometros"[(ngModel)]="kilometros"></ion-textarea>
+      </ion-item>
+      <ion-label>Precio</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce precio"[(ngModel)]="precio"></ion-textarea>
+      </ion-item>
+      <ion-label>Imagen</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce ruta imagen"[(ngModel)]="foto"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<div class="center-button">
+  <ion-button id="present-alert" fill="outline" (click)="ejecutarBoton()">Insertar</ion-button>
+
+  <ion-alert
+    *ngIf="elementosVacios()"
+    trigger="present-alert"
+    header="Advertencia"
+    message="Debes de rellenar todos los campos."
+    [buttons]="alertaBoton"
+  ></ion-alert>
+
+</div>
+<br>

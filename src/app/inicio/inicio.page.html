@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo">
+  <ion-img src="assets/images/fondo-coches.jpeg" class="background-img"></ion-img>
+  <div class="contenido">
+    <h1>¡Bienvenido a CompramosTuCoche.net!</h1>
+    <p>Encuentra el coche perfecto para ti al mejor precio.</p>
+  </div>
+
+  <div class="botones">
+    <ion-button expand="full" color="primary" shape="round" [routerLink]="['/coche']">
+      <ion-icon slot="start" name="car-outline"></ion-icon>
+      Insertar Coches
+    </ion-button>
+
+    <ion-button expand="full" color="secondary" shape="round" [routerLink]="['/buscar']">
+      <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+      Buscar Coches
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,33 @@
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-list {
+  width: 90%; // Aumentamos el ancho del contenedor de la lista
+  max-width: 1200px; // Definimos un ancho máximo más amplio
+  margin: auto; // Centramos la lista dentro del contenido
+}
+
+.centered-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.center-card {
+  width: 100%; // Se expande para ocupar todo el espacio disponible
+  max-width: 800px; // Se agranda un poco más
+  padding: 15px;
+}
+
+.tamanio-img {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+}

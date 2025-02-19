@@ -1,0 +1,29 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Complete los campos</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    
+    <ion-list>
+      <ion-item>
+        <ion-input label="Kilometros" [(ngModel)]="kilometros"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Precio" [(ngModel)]="precio"></ion-input>
+      </ion-item>
+    </ion-list>
+
+  </ion-card-content>
+</ion-card>
+<div class="center-button">
+  <ion-button id="present-alert" fill="outline" (click)="ejecutarBoton()">Actualizar</ion-button>
+  
+  <ion-alert
+    trigger="present-alert"
+    header="Advertencia"
+    message="Debes rellenar todos los campos."
+    [buttons]="alertaBoton">
+  </ion-alert>
+
+</div>

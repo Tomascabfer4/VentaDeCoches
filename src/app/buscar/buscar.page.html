@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Buscar Coche</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-select label="Indique marca" placeholder="Marca" [(ngModel)]="marcaSeleccionada">
+        <ion-select-option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</ion-select-option>
+      </ion-select>
+    </ion-item> 
+    <ion-item>
+      <ion-select label="Indique combustible" placeholder="Combustible" [(ngModel)]="combustibleSeleccionado">
+        <ion-select-option *ngFor="let combustible of combustibles" [value]="combustible">{{ combustible }}</ion-select-option>
+      </ion-select>
+    </ion-item>  
+    <ion-item>
+      <ion-input label="Indica la fecha" placeholder="Fecha minima" [(ngModel)]="fechaSeleccionada" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Indica el kilometraje" placeholder="Kilometraje maximo" [(ngModel)]="kilometrajeSeleccionado" type="number"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ng-container *ngFor="let coche of coches">
+      <ion-card *ngIf="
+        (!marcaSeleccionada || coche.Marca.toLowerCase() === marcaSeleccionada.toLowerCase()) &&
+        (!combustibleSeleccionado || coche.Combustible.toLowerCase() === combustibleSeleccionado.toLowerCase()) &&
+        (!fechaSeleccionada || coche.Fecha >= +fechaSeleccionada) &&
+        (!kilometrajeSeleccionado || coche.Kilometros <= +kilometrajeSeleccionado)">
+        <ion-card-header>
+          <ion-img src="{{ coche.Foto }}"></ion-img>
+          <ion-card-title>{{ coche.Marca }} {{ coche.Modelo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Fecha: {{ coche.Fecha }} <br />
+          Kilometraje: {{ coche.Kilometros }}
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+  </ion-list>
+
+</ion-content>
